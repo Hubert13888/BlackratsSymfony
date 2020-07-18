@@ -1,0 +1,65 @@
+{% extends "/main_layout.html.twig" %}
+
+{% block css %}
+ <link rel="stylesheet" href="{{ asset('assets/css/user_panel.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/accountsettings/password_change.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/accountsettings/personal_data_change.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/accountsettings/picture_upload.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset('assets/js/user_panel.js') }}"></script>
+{% endblock %}
+
+{% block paths %}
+{% endblock %}
+
+{% block assets %}
+<div id="asset_path1_1" data-path="{{ asset('resources/components/accountsettings/password_change.html') }}"></div>
+<div id="asset_path1_2" data-path="{{ asset('resources/components/accountsettings/personal_data_change.html') }}"></div>
+<div id="asset_path1_3" data-path="{{ asset('resources/components/accountsettings/picture_upload.html') }}"></div>
+{% endblock %}
+
+{% block content %}
+    <div id="user_panel_container0">
+    <div id="user_panel_container1">
+        <div id="user_panel_container2">
+            <div id="user_panel_container2a" style="display: none;"></div> 
+            <img src="picture1.jpg" alt="" id="user_panel_picture" draggable="false">
+            <div id="user_panel_container2b" style="display: none;">
+                <div id="user_panel_item1" title="Add new photo"><p>+</p></div>
+                <div id="user_panel_clean_right"></div>
+            </div> 
+        </div>
+        <h2>User1939</h2>
+    </div>
+    <div id="user_panel_container3">
+        <h3>Account settings</h3>
+        <div class="user_panel_set" id="user_panel_set1">
+            <div class="user_panel_set_name">
+                <p>Change your password</p>
+            </div>
+            <div class="user_panel_set_arrow"><p>></p></div>
+        </div>
+        <div class="user_panel_set" id="user_panel_set2">
+            <div class="user_panel_set_name">
+                <p>Change your Personal Data</p>
+            </div>
+            <div class="user_panel_set_arrow"><p>></p></div>
+        </div>
+        <div class="user_panel_set" id="user_panel_set3">
+            <div class="user_panel_set_name">
+                <p>Config your Payment System</p>
+            </div>
+            <div class="user_panel_set_arrow"><p>></p></div>
+        </div>
+        <div class="user_panel_set" id="user_panel_set4">
+            <div class="user_panel_set_name">
+                <p>Buy Improvements</p>
+            </div>
+            <div class="user_panel_set_arrow"><p>></p></div>
+        </div>
+    </div>
+  </div>  
+
+{% endblock %}

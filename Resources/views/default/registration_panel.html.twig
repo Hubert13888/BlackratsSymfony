@@ -1,0 +1,143 @@
+{% extends "/main_layout.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('assets/css/registration_panel.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('assets/js/logged_deny.js') }}"></script>
+    <script src="{{ asset('assets/js/registration_panel.js') }}"></script>
+    <script src="{{ asset('assets/js/strength_meter.js') }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://unpkg.com/xregexp/xregexp-all.js"></script>
+{% endblock %}
+   
+{% block log_functions %} 
+    <script src="{{ asset('assets/js/logged_deny.js') }}"></script>
+{% endblock %}
+		
+{% block content %}
+
+        <div id="reg_form_container">
+            <div class="reg_form_text" id="reg_form_basic_info_info">Basic information</div>
+            
+            <!--Username input-->
+            <div id="reg_form_username_error_binder" class="reg_form_error_binder" style="display: none;">
+                <div id="reg_form_username_error" class="reg_form_error1">
+                     
+                </div>
+                <div id="reg_form_username_error_triangle" class="reg_form_error_triangle1"></div>
+            </div>
+                <input type="text" id="reg_form_username_input" placeholder="Username">
+            
+            <!--Email input-->
+            <div id="reg_form_email_error_binder" class="reg_form_error_binder" style="display: none;">
+                <div id="reg_form_email_error" class="reg_form_error2">
+                    
+                </div>
+                <div id="reg_form_email_error_triangle" class="reg_form_error_triangle2"></div>
+            </div>
+                <input type="text" id="reg_form_email_input" placeholder="E-mail">
+            
+            <!--Password input-->
+            <div id="reg_form_password_error_binder" class="reg_form_error_binder" style="display: none;">
+                <div id="reg_form_password_error" class="reg_form_error1">
+                    
+                </div>
+                <div id="reg_form_password_error_triangle" class="reg_form_error_triangle1"></div>
+            </div>    
+                <input type="password" id="reg_form_password_input" placeholder="Password">
+                
+                <div id="reg_form_strength_meter">
+                    <div id="reg_form_meter1" class="reg_form_meters" style="display: none;" style="display: none;"></div>
+                    <div id="reg_form_meter2" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter3" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter4" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter5" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter6" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter7" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter8" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter9" class="reg_form_meters" style="display: none;"></div>
+                    <div id="reg_form_meter10" class="reg_form_meters" style="display: none;"></div>
+                </div>
+                
+            <!--Confirm Password Input-->
+            <div id="reg_form_confirm_password_error_binder" class="reg_form_error_binder" style="display: none;">
+                <div id="reg_form_confirm_password_error" class="reg_form_error2">
+                    
+                </div>
+                <div id="reg_form_confirm_password_error_triangle" class="reg_form_error_triangle2"></div>
+            </div>    
+                <input type="password" id="reg_form_confirm_password_input" placeholder="Confirm password">
+            
+            <!--Name inputs-->
+            <div class="reg_form_text" id="reg_form_name_info">Name</div>
+            <div id="reg_form_binder1">   
+                <div id="reg_form_name_error_binder" class="reg_form_error_binder" style="display: none;">
+                    <div id="reg_form_name_error" class="reg_form_error1">
+                    </div>
+                    <div id="reg_form_name_error_triangle" class="reg_form_error_triangle1"></div>
+                </div>
+                <input class="reg_form_binded1" id="reg_form_first_name_input" type="text" placeholder="First name">
+                <input class="reg_form_binded1" id="reg_form_last_name_input" type="text" placeholder="Last Name">
+            </div>
+            
+            <!--Born Date inputs-->
+            <div class="reg_form_text" id="reg_form_born_date_info">Birth Date</div>
+                <div id="reg_form_binder2">
+                    <div id="reg_form_born_date_error_binder" class="reg_form_error_binder" style="display: none;">
+                        <div id="reg_form_born_date_error" class="reg_form_error2">
+                        </div>
+                        <div id="reg_form_born_date_error_triangle" class="reg_form_error_triangle2"></div>
+                    </div>
+                    <input class="reg_form_binded2" id="reg_form_day_input" type="text" placeholder="Day">
+                    <select id="reg_form_birth_month_select"  id="reg_form_month_input">
+                            <option value="" disabled selected>Month</option>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                    </select>
+                    <input class="reg_form_binded2" id="reg_form_year_input" type="text" placeholder="Year">
+                </div>  
+            <!--Location inputs-->    
+            <div class="reg_form_text" id="reg_form_location_info">Location</div>
+            <div id="reg_form_location_error_binder" class="reg_form_error_binder" style="display: none;">
+                <div id="reg_form_location_error" class="reg_form_error1">
+                    
+                </div>
+                <div id="reg_form_location_error_triangle" class="reg_form_error_triangle1"></div>
+            </div>
+            <div id="reg_form_binder3">    
+                <input  class="reg_form_binded3" id="reg_form_city_input" type="text" placeholder="City">
+                <input  class="reg_form_binded3" id="reg_form_country_input" type="text" placeholder="Country">
+            </div>
+            
+            
+            <div class="reg_form_checkbox_terms">
+                <input type="checkbox" class="reg_form_terms_of_use_checkbox" id="reg_form_checkbox1">
+                <div class="reg_form_terms_of_use_text">
+                    I really accept <a href="">Terms of Use</a> and I decide to pay you 500$ per month
+                </div>
+            </div>
+            <div class="reg_form_checkbox_terms">
+                <input type="checkbox" class="reg_form_terms_of_use_checkbox" id="reg_form_checkbox2">
+                <div class="reg_form_terms_of_use_text">
+                    I accept the Invisible Captcha used on this website
+                </div>
+            </div>
+            <div id="reg_form_captcha" class="g-recaptcha" data-sitekey="6LdEBzoUAAAAALWEM9NUNQbPaP8gqb9juY2GZFRJ"></div>
+            <img style="display: none;" id="reg_form_loading_gif" src="{{ asset('assets/gif/loading.gif') }}">
+            <button id="reg_form_submit_button">Register</button>
+        </div>
+        <div id="data_path_1" data-path="{{ path('register_php') }}"></div>
+        <div id="data_path_2" data-path="{{ path('existing_checker_php') }}"></div>
+{% endblock %}

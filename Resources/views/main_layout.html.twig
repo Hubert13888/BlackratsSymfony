@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Blackrats</title>
+		<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main_nav.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/login_panel.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/menu_menulist_cookies.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset('assets/fontello/menu/css/fontello.css') }}"/>
+		{% block css %}
+		{% endblock %}
+		<script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+		<script src="{{ asset('assets/js/main_nav_direct_links.js') }}"></script>
+		<script src="{{ asset('assets/js/cookies_files.js') }}"></script>
+		<script src="{{ asset('assets/js/menu_content.js') }}"></script>
+		<script src="{{ asset('assets/js/menu_list_content.js') }}"></script>
+		<script src="{{ asset('assets/js/login_panel.js') }}"></script>
+		{% block scripts %}
+		{% endblock %}
+	</head>
+	<body>
+        <div id="data_path3" data-path="{{ path('login_php') }}"></div>
+        <div id="data_path4" data-path="{{ path('homepage') }}"></div>
+        <div id="data_path5" data-path="{{ path('session_check1') }}"></div>
+        <div id="data_path6" data-path="{{ path('registration_panel') }}"></div>
+        <div id="data_path7" data-path="{{ path('logout') }}"></div>
+        <div id="data_path8" data-path="{{ path('cookie1') }}"></div>
+        <div id="data_path9" data-path="{{ path('user_panel') }}"></div>
+        {% block paths %}
+		{% endblock %}
+    
+        <div id="asset_path1" data-path="{{ asset('resources/html/login_panel.html') }}"></div>
+        <div id="asset_path2" data-path="{{ asset('resources/components/log_and_reg_buttons.html') }}"></div>
+        <div id="asset_path3" data-path="{{ asset('assets/gif/loading.gif') }}"></div>
+        <div id="asset_path4" data-path="{{ asset('resources/components/cookies_files.html') }}"></div>
+        <div id="asset_path5" data-path="{{ asset('resources/components/menu_content.html') }}"></div>
+        <div id="asset_path6" data-path="{{ asset('resources/components/menu_list_content.html') }}"></div>
+        {% block assets %}
+		{% endblock %}
+        
+        {% block log_functions %}
+        {% endblock %}
+        
+	    <script src="{{ asset('assets/js/logged_session_checker.js') }}"></script>
+	    
+		<div id="nav_up_bar">
+		   <div id="nav_up_cleaner_left"></div>
+			<img id="logo_img" src="{{ asset('assets/img/logo.png') }}" alt="logo_img" draggable="false">
+			<div id="nav_up_btn_container">
+				<div class="nav_up_button">
+					<p id="btn1" data-path="{{ path('homepage') }}">HOME</p>
+				</div>
+				<div class="nav_up_button">
+					<p id="btn2">Tutorial</p>
+				</div>
+				<div class="nav_up_button">
+					<p id="btn3">About us</p>
+				</div>
+				<div class="nav_up_button">
+					<p id="btn4">Contact</p>
+				</div>
+            </div>
+		   <div id="nav_up_cleaner_right"></div>
+		   
+		   
+		</div>
+        <main>
+		      {% block content %}
+              {% endblock %}
+	    </main>
+	</body>
+</html>
